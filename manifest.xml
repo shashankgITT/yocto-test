@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <default sync-j="2" />
+
+  <remote name="yocto" alias="upstream"
+          fetch="https://git.yoctoproject.org" />
+  <remote name="oe"    alias="upstream"
+          fetch="https://github.com/openembedded" />
+  <remote name="oeqt"  alias="upstream"
+          fetch="https://github.com/meta-qt5" />
+  <remote name="stm"   alias="upstream"
+          fetch="https://github.com/STMicroelectronics" />
+  <remote name="mender"   alias="upstream"
+          fetch="https://github.com/mendersoftware" />
+
+  <remote name="synapse"
+          fetch="build/localgit" />
+
+
+<!--
+  Instead of the 4.0.9 release, roll back 5 months to gstreamer 1.20.3 so
+  ST's stupid layer works.
+-->
+  <project name="poky" path="yocto"
+    remote="yocto" upstream="kirkstone" revision="d36db9661051d78987dd15d35e79251f5bce3f3c" />
+
+  <project name="meta-openembedded" path="meta-openembedded"
+    remote="oe" upstream="kirkstone" revision="05dcac98473402d87e0af73bbc2c5a6a840abe93" />
+
+  <project name="meta-st-openstlinux" path="meta-st-openstlinux"
+    remote="stm" upstream="kirkstone" revision="cb736b403d0fef2a02390695613b6b4bb13ca1b7" />
+
+  <project name="meta-st-stm32mp" path="meta-st-stm32mp"
+    remote="stm" upstream="kirkstone" revision="311a492c21f0f3643f4b764f8b743c4c6908d31b" />
+
+  <project name="meta-qt5" path="meta-qt5"
+    remote="oeqt" upstream="kirkstone" revision="bff5bd937f0776166e81a63f3dd39ede348ef758" />
+
+  <project name="meta-mender" path="meta-mender"
+    remote="mender" upstream="kirkstone" revision="684fa23a731208b4f813d36eac8f034fe646f19c" />
+
+<!--  <project name="meta-st-scripts" path="scripts"
+remote="stm" upstream="kirkstone" revision="bc063e7af04d04aff66401eb73610381bebc49a0" />-->
+
+
+<!--
+  Manual Checkout
+
+  <project name="meta-airbnb" path="meta-airbnb" remote="synapse" revision="refs/heads/master" />
+-->
+
+</manifest>
+
